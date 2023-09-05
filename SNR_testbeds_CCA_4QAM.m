@@ -1,5 +1,5 @@
 clear; close all; clc;
-rng(5)   % Fix the random generator for reproducibility
+rng(5)   % Fix the random generator for reproducibility 
 % Parameters
 Ms = 2;                 % Number of antennas at SRx
 N = 16;                 % Number of total samples
@@ -20,9 +20,9 @@ SER_per_SSNR = [];
 for desired_SSNR_db = SSNR_list
     desired_SSNR_db
     desired_SSNR_linear = 10^(desired_SSNR_db / 10);
-    % Calculate secondary transmit power to achieve the desired SNR
+    % Calculate secondary transmit power to achieve the desired SSNR
     alpha_s_linear = (N0_linear) * desired_SSNR_linear;
-    % Calculate acceptable level of interference to achieve the desired SINR
+    % Calculate acceptable level of interference to achieve the desired SSINR
     alpha_p_linear = (alpha_s_linear) / desired_SSINR_linear - N0_linear;
     error_list = zeros(monte_carlo_runs,1);
     for kk = 1:monte_carlo_runs
@@ -45,7 +45,7 @@ for desired_SSNR_db = SSNR_list
         % Create the signal views
         Y_1 = Y_s(1:N/2,:);
         Y_2 = Y_s(N/2+1:end,:);
-        [C,g_opt,q] = gCCA(Y_1,Y_2);
+        [~,g_opt,~] = gCCA(Y_1,Y_2);
         % Estimate phase and correct scaling (complex case)
         phaseest = ((preamble')*g_opt(1:N_p))/norm(preamble)^2;
         g_opt = g_opt *conj(phaseest);

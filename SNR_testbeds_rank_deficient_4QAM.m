@@ -1,4 +1,5 @@
 clear; close all; clc;
+addpath('real_valued_rank_deficient_codes/')
 rng(5)   % Fix the random generator for reproducibility
 % Parameters
 Ms = 2;                 % Number of antennas at SRx
@@ -51,7 +52,9 @@ for desired_SSNR_db = SSNR_list
         [U2,~,~] = svd(Y_2,"econ");
         r1 = rank(Y_1);
         r2 = rank(Y_2);
+        % Construct matrix A
         A = U1(:,1:r1)*(U1(:,1:r1)') + U2(:,1:r2)*(U2(:,1:r2)');
+        % Do the transformation to obtain matrix H
         H = [real(A), -imag(A); imag(A), real(A)];
         % Perform eigenvalue decomposition
         [Q, Lambda] = eigs(H,D);

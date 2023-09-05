@@ -7,7 +7,6 @@ D = 1;                  % Set the rank for the truncation
 % Secondary user sends 4-QAM, Primary user sends 4-QAM
 M_secondary = 4;                  
 M_primary = 4;
-
 h_s =  sqrt(1/2)*(randn(1,Ms) + 1j*randn(1,Ms)); % channel vector of underlay user
 h_ps = sqrt(1/2)*(randn(1,Ms) + 1j*randn(1,Ms)); % channel vector of primary user
 % Modulate data : Secondary signal
@@ -37,9 +36,8 @@ A = U1(:,1:r1)*(U1(:,1:r1)') + U2(:,1:r2)*(U2(:,1:r2)');
 H = [real(A), -imag(A); imag(A), real(A)];
 disp("Rank of A:"+rank(A))
 disp("Rank of H:"+rank(H))
-
 % Verify that the closed form with the outer products including s, p1 and p2
-% is correct
+% is correct (noiseless casse)
 a1 = norm(s,2)^2*norm(p1,2)^2 - (s')*(p1)*(p1')*(s); 
 a2 = norm(s,2)^2*norm(p2,2)^2 - (s')*(p2)*(p2')*(s); 
 z1 = (norm(p1,2)^2/a1 + norm(p2,2)^2/a2)*s - (1/a1)*((p1')*s)*p1 - (1/a2)*((p2')*s)*p2;

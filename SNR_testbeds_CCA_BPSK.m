@@ -20,9 +20,9 @@ SER_per_SSNR = [];
 for desired_SSNR_db = SSNR_list
     desired_SSNR_db
     desired_SSNR_linear = 10^(desired_SSNR_db / 10);
-    % Calculate secondary transmit power to achieve the desired SNR
+    % Calculate secondary transmit power to achieve the desired SSNR
     alpha_s_linear = (N0_linear) * desired_SSNR_linear;
-    % Calculate acceptable level of interference to achieve the desired SINR
+    % Calculate acceptable level of interference to achieve the desired SSINR
     alpha_p_linear = (alpha_s_linear) / desired_SSINR_linear - N0_linear;
     error_list = zeros(monte_carlo_runs,1);
     for kk = 1:monte_carlo_runs
@@ -45,17 +45,19 @@ for desired_SSNR_db = SSNR_list
         % Create the signal views
         Y_1 = Y_s(1:N/2,:);
         Y_2 = Y_s(N/2+1:end,:);
-        % Solve the CCA problem for the special case g^T*real(A)*g
+        % Solve the CCA problem for the special case g^T*Re{A}*g
         [U1,~,~] = svd(Y_1,"econ");
         [U2,~,~] = svd(Y_2,"econ");
         r1 = rank(Y_1);
         r2 = rank(Y_2);
+        % For that special case we need to find the principal component
+        % of matrix M = [Re{U1}, Re{U2}, Im{U1}, Im{U2}]
         M_conc = [real(U1(:,1:r1)), real(U2(:,1:r2)), imag(U1(:,1:r1)), imag(U2(:,1:r2))];
         [U_f,~,~] = svd(M_conc,"econ");
         g_opt = U_f(:,1); % Keep the 1st principal component
         % Correct the sign ambiguity
         g_opt = g_opt/g_opt(1);
-        % Detect symbols using the sign since underlay sends bpsk
+        % Detect symbols using the sign since underlay sends BPSK
         detected_symbols = sign(g_opt);
         % Dont account error for the preamble symbol
         error_list(kk) = mean(s(N_p+1:end)~=detected_symbols(N_p+1:end));

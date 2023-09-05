@@ -4,10 +4,11 @@ function [C,G_opt,Q_opt] = gCCA(varargin)
 %   analysis using the MAX-VAR formulation.                               %
 %   Inputs: varargin is a list of dictionaries that hold all the input    %
 %   datasets. Note that if the number of datasets is K, it should hold    %
-%   that K >= 2.                                                           %
+%   that K >= 2.                                                          %
 %   Outputs:                                                              %
 %            C -> Evaluation of the MAX-VAR cost function                 %                              
 %            G_opt -> Common direction i.e. our information vector        %
+%            Q_opt -> Optimal reducing operators                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     K = length(varargin(1:end));
     if K < 2

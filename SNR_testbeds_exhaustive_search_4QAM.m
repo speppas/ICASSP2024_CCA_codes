@@ -20,9 +20,9 @@ SER_per_SSNR = [];
 for desired_SSNR_db = SSNR_list
     desired_SSNR_db
     desired_SSNR_linear = 10^(desired_SSNR_db / 10);
-    % Calculate secondary transmit power to achieve the desired SNR
+    % Calculate secondary transmit power to achieve the desired SSNR
     alpha_s_linear = (N0_linear) * desired_SSNR_linear;
-    % Calculate acceptable level of interference to achieve the desired SINR
+    % Calculate acceptable level of interference to achieve the desired SSINR
     alpha_p_linear = (alpha_s_linear) / desired_SSINR_linear - N0_linear;
     error_list = zeros(monte_carlo_runs,1);
     for kk = 1:monte_carlo_runs
@@ -48,7 +48,9 @@ for desired_SSNR_db = SSNR_list
         % Create the transformed matrix H that in the noiseless case has rank 6
         [U1,~,~] = svd(Y_1,"econ");
         [U2,~,~] = svd(Y_2,"econ");
+        % Construct matrix A
         A = U1(:,1:rank(Y_1))*(U1(:,1:rank(Y_1))') + U2(:,1:rank(Y_2))*(U2(:,1:rank(Y_2))');
+        % Do the transformation to obtain matrix H
         H = [real(A), -imag(A); imag(A), real(A)];
         % Generate all possible combinations for b
         b_values = dec2bin(0:(2^(N) - 1)) - '0';    % Convert to binary

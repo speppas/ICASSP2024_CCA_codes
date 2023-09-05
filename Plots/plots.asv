@@ -15,6 +15,7 @@ SER_exhaustive_search_BPSK = SER_per_SSNR;
 SNR_list = 0:2:16;
 
 % Experiments with SSINR = -45 dB - BPSK
+
 figure(1)
 semilogy(SNR_list,SER_CCA_BPSK,'-d',"LineWidth",linewidth, 'MarkerSize',10)
 hold on;
@@ -34,6 +35,7 @@ legend("CCA & rank def. (D = 1)",...
 set(gca,'FontSize',15)
 
 % Experiments with SSINR = 0 dB - BPSK
+
 load("BPSK_SER/CCA/SER2.mat")
 SER_CCA_BPSK2 = SER_per_SSNR;
 
@@ -43,15 +45,11 @@ SER_rank_def_rank1_BPSK2 = SER_per_SSNR;
 load("BPSK_SER/rank_deficient/rank5/SER2.mat")
 SER_rank_def_rank5_BPSK2 = SER_per_SSNR;
 
-load("BPSK_SER/exhaustive_search/SER2.mat")
-SER_exhaustive_search_BPSK2 = SER_per_SSNR;
 
 figure(2)
 semilogy(SNR_list,SER_CCA_BPSK2,'-d',"LineWidth",linewidth, 'MarkerSize',10)
 hold on;
 semilogy(SNR_list,SER_rank_def_rank5_BPSK2,'--o',"LineWidth",linewidth, 'MarkerSize',12)
-hold on;
-semilogy(SNR_list,SER_exhaustive_search_BPSK2,'-.x',"LineWidth",linewidth, 'MarkerSize',10)
 ylabel("SER")
 xlabel("SSNR (dB)")
 grid on;
@@ -75,8 +73,6 @@ load("4QAM_SER/rank_deficient/rank6/SER.mat")
 SER_rank_def_rank6_4QAM = SER_per_SSNR;
 load("4QAM_SER/exhaustive_search/SER.mat")
 SER_exhaustive_search_4QAM = SER_per_SSNR;
-
-% Experiments with SSINR = -45 dB - 4QAM
 
 figure(3)
 semilogy(SNR_list,SER_CCA_4QAM,'-d',"LineWidth",linewidth, 'MarkerSize',6)
@@ -104,4 +100,5 @@ legend("CCA",...
     "rank def. (D = 4)", ...
     "rank def. (D = 6)",...
     "Exhaustive Search");
+
 set(gca,'FontSize',15)

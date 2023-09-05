@@ -7,7 +7,6 @@ D = 1;                  % Set the rank for the truncation
 % Secondary user sends BPSK, Primary user sends 4-QAM
 M_secondary = 2;                  
 M_primary = 4;
-
 h_s =  sqrt(1/2)*(randn(1,Ms) + 1j*randn(1,Ms)); % channel vector of underlay user
 h_ps = sqrt(1/2)*(randn(1,Ms) + 1j*randn(1,Ms)); % channel vector of primary user
 % Modulate data : Secondary signal
@@ -19,7 +18,6 @@ x_s = [s;s];           % Repeat the information for the underlay user twice
 % Signal of primary user
 data_primary = randi([0 M_primary-1],N,1);
 x_p = qammod(data_primary,M_primary,'UnitAveragePower',true);
-
 % Noiseless Received Underlay Signal
 Y_s = x_s *  h_s +  x_p * h_ps ;
 % Create the signal views
@@ -33,6 +31,5 @@ r1 = rank(Y_1);
 r2 = rank(Y_2);
 A = U1(:,1:r1)*(U1(:,1:r1)') + U2(:,1:r2)*(U2(:,1:r2)');
 A_real = real(A);
-
 disp("Rank of A:"+rank(A))
 disp("Rank of Re{A}:"+rank(A_real))
