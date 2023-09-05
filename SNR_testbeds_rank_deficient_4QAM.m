@@ -1,4 +1,6 @@
 clear; close all; clc;
+% add to path the codes for the efficient computation 
+% of the binary vector that maximizes a Rank-deficient Quadratic Form
 addpath('real_valued_rank_deficient_codes/')
 rng(5)   % Fix the random generator for reproducibility
 % Parameters
