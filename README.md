@@ -9,7 +9,10 @@ This repository contains MATLAB scripts developed for the analysis of the paper 
 - [Contributing](#contributing)
 
 ## Installation
-Instructions on how to install...
+To use these scripts, MATLAB must be installed on your system. No additional toolboxes are required. Simply clone the repository or download the scripts to your local machine.
+
+```bash
+git clone [repository URL]
 
 ## Usage
 - To do this, follow these steps...
