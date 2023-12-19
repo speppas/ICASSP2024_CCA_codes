@@ -6,7 +6,10 @@ This repository contains MATLAB scripts developed for the analysis of the paper 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
+- [License](#license)
+- [Authors and Acknowledgment](#authorsandacknowledgment)
+- [Citation](#citation)
+- [Contact Information](#contactinformation)
 
 ## Installation
 To use these scripts, MATLAB must be installed on your system. No additional toolboxes are required. Simply clone the repository or download the scripts to your local machine.
