@@ -15,5 +15,5 @@ This repository contains MATLAB scripts developed for the analysis of the paper 
 To use these scripts, MATLAB must be installed on your system. No additional toolboxes are required. Simply clone the repository or download the scripts to your local machine.
 
 ```bash
-git clone [[repository URL]] https://github.com/speppas/ICASSP2024_CCA_codes.git)https://github.com/speppas/ICASSP2024_CCA_codes.git
+git clone [repository URL] https://github.com/speppas/ICASSP2024_CCA_codes.git)https://github.com/speppas/ICASSP2024_CCA_codes.git
 ```
