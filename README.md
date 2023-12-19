@@ -15,5 +15,15 @@ This repository contains MATLAB scripts developed for the analysis of the paper 
 To use these scripts, MATLAB must be installed on your system. No additional toolboxes are required. Simply clone the repository or download the scripts to your local machine.
 
 ```bash
-git clone [repository URL] https://github.com/speppas/ICASSP2024_CCA_codes.git)https://github.com/speppas/ICASSP2024_CCA_codes.git
+git clone https://github.com/speppas/ICASSP2024_CCA_codes.git)https://github.com/speppas/ICASSP2024_CCA_codes.git
 ```
+## Usage
+
+Each script in this repository corresponds to a different testbed or algorithm:
+
+- `SNR_testbeds_CCA_4QAM.m`: Testbed for CCA with 4QAM modulation.
+- `SNR_testbeds_CCA_BPSK.m`: Testbed for CCA with BPSK modulation.
+- [...additional descriptions for each script...]
+
+To run a script, open it in MATLAB and execute. Ensure you are in the correct directory or adjust your MATLAB path accordingly.
+
