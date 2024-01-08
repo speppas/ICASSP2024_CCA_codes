@@ -28,3 +28,5 @@ To run a script, open it in MATLAB and execute. Ensure you are in the correct di
 
 For further inquiries, please contact wxk3qj@virginia.edu.
 
+## Note
+The repository needs some updates regarding the instructions.
