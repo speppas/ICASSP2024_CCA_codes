@@ -29,7 +29,7 @@ for desired_SSNR_db = SSNR_list
         % Channel response
         h_s =  sqrt(1/2)*(randn(1,Ms) + 1j*randn(1,Ms)); % channel vector of underlay user
         h_ps = sqrt(1/2)*(randn(1,Ms) + 1j*randn(1,Ms)); % channel vector of primary user
-        % Modulate data : Secondary signal
+        % Modulate data: Secondary signal
         data_secondary = randi([0 M-1],N/2,1);
         s = qammod(data_secondary,M,'UnitAveragePower',true);
         s(1) = (1+1j)/sqrt(2); % For scaling purposes
@@ -50,7 +50,6 @@ for desired_SSNR_db = SSNR_list
         phaseest = ((preamble')*g_opt(1:N_p))/norm(preamble)^2;
         g_opt = g_opt *conj(phaseest);
         g_opt = g_opt / sqrt(mean(abs(g_opt).^2));
-        g_opt = (sign(real(g_opt))+ 1j*sign(imag(g_opt)))/sqrt(2);
         % Detect symbols (using the nearest neighbor)
         detected_symbols = nearest_neighbor(labels,g_opt);
         % Dont account error for the preamble symbol

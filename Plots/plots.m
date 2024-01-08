@@ -1,7 +1,6 @@
+%% Experiments with SSINR = -45 dB - BPSK
 clear; close all ; clc;
-
 linewidth = 2;    % Set the linewidth of the plot lines
-
 % Load SER for the BPSK case
 load("BPSK_SER/CCA/SER.mat")
 SER_CCA_BPSK = SER_per_SSNR;
@@ -12,9 +11,8 @@ SER_rank_def_rank5_BPSK = SER_per_SSNR;
 load("BPSK_SER/exhaustive_search/SER.mat")
 SER_exhaustive_search_BPSK = SER_per_SSNR;
 
-SNR_list = 0:2:16;
+SNR_list = 0:2:16; % SSNR values
 
-% Experiments with SSINR = -45 dB - BPSK
 figure(1)
 semilogy(SNR_list,SER_CCA_BPSK,'-d',"LineWidth",linewidth, 'MarkerSize',10)
 hold on;
@@ -32,17 +30,13 @@ legend("CCA & rank def. (D = 1)",...
     "rank def. (D = 5)",...
     "Exhaustive Search");
 set(gca,'FontSize',15)
-
-% Experiments with SSINR = 0 dB - BPSK
+%% Experiments with SSINR = 0 dB - BPSK
 load("BPSK_SER/CCA/SER2.mat")
 SER_CCA_BPSK2 = SER_per_SSNR;
-
 load("BPSK_SER/rank_deficient/rank1/SER2.mat")
 SER_rank_def_rank1_BPSK2 = SER_per_SSNR;
-
 load("BPSK_SER/rank_deficient/rank5/SER2.mat")
 SER_rank_def_rank5_BPSK2 = SER_per_SSNR;
-
 load("BPSK_SER/exhaustive_search/SER2.mat")
 SER_exhaustive_search_BPSK2 = SER_per_SSNR;
 
@@ -63,7 +57,7 @@ legend("CCA & rank def. (D = 1)",...
     "rank def. (D = 5)",...
     "Exhaustive Search");
 set(gca,'FontSize',15)
-
+%% Experiments with SSINR = -45 dB - 4QAM
 % Load SER for the 4QAM case
 load("4QAM_SER/CCA/SER.mat")
 SER_CCA_4QAM = SER_per_SSNR;
@@ -75,9 +69,6 @@ load("4QAM_SER/rank_deficient/rank6/SER.mat")
 SER_rank_def_rank6_4QAM = SER_per_SSNR;
 load("4QAM_SER/exhaustive_search/SER.mat")
 SER_exhaustive_search_4QAM = SER_per_SSNR;
-
-% Experiments with SSINR = -45 dB - 4QAM
-
 figure(3)
 semilogy(SNR_list,SER_CCA_4QAM,'-d',"LineWidth",linewidth, 'MarkerSize',6)
 hold on;
@@ -98,7 +89,6 @@ yticklabels({'10^{-1.5}','10^{-1}','10^{-0.6}','10^{-0.2}'})
 title("Rayleigh Fading - 4QAM")
 xlim([0 16]);
 xticks(0:2:16)
-
 legend("CCA",...
     "rank def. (D = 2)", ...
     "rank def. (D = 4)", ...
