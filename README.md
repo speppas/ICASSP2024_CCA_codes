@@ -23,7 +23,7 @@ Each script in this repository corresponds to a different testbed or algorithm:
 
 - `SNR_testbeds_CCA_4QAM.m`: Testbed for CCA with 4QAM modulation.
 - `SNR_testbeds_CCA_BPSK.m`: Testbed for CCA with BPSK modulation.
-- [...additional descriptions for each script...]
+- ...
 
 To run a script, open it in MATLAB and execute. Ensure you are in the correct directory or adjust your MATLAB path accordingly.
 
@@ -31,17 +31,6 @@ To run a script, open it in MATLAB and execute. Ensure you are in the correct di
 
 This project is licensed under the [License Name] - see the `LICENSE.md` file for details.
 
-## Authors and Acknowledgment
-
-- [Your Name] - *Initial work*
-- [Collaborators' Names]
-- Special thanks to [Acknowledgments]
-
-## Citation
-
-Please cite this work as follows in academic publications:
-[Your Citation Format]
-
 ## Contact Information
 
-For further inquiries or collaboration opportunities, please contact wxk3qj@virginia.edu.
+For further inquiries, please contact wxk3qj@virginia.edu.
