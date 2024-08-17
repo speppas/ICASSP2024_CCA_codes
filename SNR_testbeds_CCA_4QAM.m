@@ -47,9 +47,8 @@ for desired_SSNR_db = SSNR_list
         Y_2 = Y_s(N/2+1:end,:);
         [~,g_opt,~] = gCCA(Y_1,Y_2);
         % Estimate phase and correct scaling (complex case)
-        phaseest = ((preamble')*g_opt(1:N_p))/norm(preamble)^2;
-        g_opt = g_opt *conj(phaseest);
-        g_opt = g_opt / sqrt(mean(abs(g_opt).^2));
+        c=g_opt(1:N_p)'*s(1:N_p)/(g_opt(1:N_p)'*g_opt(1:N_p));
+        g_opt=c*g_opt;
         % Detect symbols (using the nearest neighbor)
         detected_symbols = nearest_neighbor(labels,g_opt);
         % Dont account error for the preamble symbol
